@@ -23,6 +23,7 @@ import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.config.ConfigException;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -67,7 +68,7 @@ public class GrokConfig extends AbstractConfig {
     public List<String> patterns() {
         final String pattern = this.getString(GROK_PATTERN_CONFIG);
 
-        if (pattern != null) return List.of(pattern);
+        if (pattern != null) return Arrays.asList(pattern);
 
         final List<String> patterns = getOrderedSubProperties(GROK_PATTERNS_PREFIX_CONFIG);
         if (patterns.isEmpty()) {

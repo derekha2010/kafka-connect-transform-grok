@@ -34,7 +34,7 @@ public class GrokTest<R extends ConnectRecord<R>>  {
     @Test
     public void should_extract_named_captured_given_config_with_single_pattern() {
         final Grok.Value<SourceRecord> grok = new Grok.Value<>();
-        grok.configure(new HashMap<>(){{
+        grok.configure(new HashMap<String, Object>(){{
             put(GrokConfig.GROK_PATTERN_CONFIG, "%{EMAILADDRESS}");
             put(GrokConfig.GROK_NAMED_CAPTURES_ONLY_CONFIG, false);
         }});
@@ -49,7 +49,7 @@ public class GrokTest<R extends ConnectRecord<R>>  {
     public void should_extract_named_captured_given_config_with_multiple_patterns_and_break_false() {
 
         final Grok.Value<SourceRecord> grok = new Grok.Value<>();
-        grok.configure(new HashMap<>(){{
+        grok.configure(new HashMap<String, Object>(){{
             put(GrokConfig.GROK_PATTERNS_PREFIX_CONFIG+"1", "%{NUMBER}");
             put(GrokConfig.GROK_PATTERNS_PREFIX_CONFIG+"2", "%{EMAILADDRESS}");
             put(GrokConfig.GROK_NAMED_CAPTURES_ONLY_CONFIG, false);
@@ -72,7 +72,7 @@ public class GrokTest<R extends ConnectRecord<R>>  {
     public void should_extract_named_captured_given_config_with_multiple_patterns_and_break_true() {
 
         final Grok.Value<SourceRecord> grok = new Grok.Value<>();
-        grok.configure(new HashMap<>(){{
+        grok.configure(new HashMap<String, Object>(){{
             put(GrokConfig.GROK_PATTERNS_PREFIX_CONFIG+"1", "%{NUMBER}");
             put(GrokConfig.GROK_PATTERNS_PREFIX_CONFIG+"2", "%{EMAILADDRESS}");
             put(GrokConfig.GROK_NAMED_CAPTURES_ONLY_CONFIG, false);

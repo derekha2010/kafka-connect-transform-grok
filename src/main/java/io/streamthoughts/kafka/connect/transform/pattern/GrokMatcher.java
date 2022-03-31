@@ -123,7 +123,7 @@ public class GrokMatcher {
     public Map<String, Object> captures(final byte[] bytes) {
 
         long now = Time.SYSTEM.milliseconds();
-        final var extractor = new GrokCaptureExtractor.MapGrokCaptureExtractor(grokCaptureGroups);
+        final GrokCaptureExtractor.MapGrokCaptureExtractor extractor = new GrokCaptureExtractor.MapGrokCaptureExtractor(grokCaptureGroups);
 
         final Matcher matcher = regex.matcher(bytes);
         int result = matcher.search(0, bytes.length, Option.DEFAULT);

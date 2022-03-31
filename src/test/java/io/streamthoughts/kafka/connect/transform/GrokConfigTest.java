@@ -35,7 +35,7 @@ public class GrokConfigTest {
 
     @Test
     public void should_return_given_single_pattern() {
-        final GrokConfig config = new GrokConfig(new HashMap<>(){{
+        final GrokConfig config = new GrokConfig(new HashMap<String, String>(){{
             put(GrokConfig.GROK_PATTERN_CONFIG, "pattern");
         }});
         Assert.assertEquals(1, config.patterns().size());
@@ -44,7 +44,7 @@ public class GrokConfigTest {
 
     @Test
     public void should_return_given_multiple_ordered_patterns() {
-        final GrokConfig config = new GrokConfig(new HashMap<>(){{
+        final GrokConfig config = new GrokConfig(new HashMap<String, String>(){{
             put(GrokConfig.GROK_PATTERNS_PREFIX_CONFIG + "3", "pattern3");
             put(GrokConfig.GROK_PATTERNS_PREFIX_CONFIG + "1", "pattern1");
             put(GrokConfig.GROK_PATTERNS_PREFIX_CONFIG + "2", "pattern2");
